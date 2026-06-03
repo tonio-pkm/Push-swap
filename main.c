@@ -67,6 +67,11 @@ static void	create_stack(t_list **stack_a, char **argv)
 		}
 		lstadd_front(stack_a, ft_lstnew(ft_atoi(argv[i++])));
 	}
+	if (dup_controller(stack_a))
+	{
+		free_stack(stack_a);
+		exit (1);
+	}
 }
 
 void	print_stack(t_list *stack, char c)

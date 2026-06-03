@@ -38,8 +38,10 @@ void	rrr(t_list **a, t_list **b);
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **b, t_list **a);
 
+int dup_controller(t_list *stack);
 int	check_args(char *str);
 int	ft_atoi(const char *str);
-int     ft_disorder_index(t_list *stack);
+int	ft_disorder_index(t_list *stack);
 t_list  *ft_lstnew(int content);
+
 #endif

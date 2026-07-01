@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antgarci <antgarci@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: wlu-bjor <wlu-bjor@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 17:31:13 by antgarci          #+#    #+#             */
-/*   Updated: 2026/06/01 16:53:13 by antgarci         ###   ########.fr       */
+/*   Updated: 2026/06/27 17:58:39 by wlu-bjor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,29 @@
 
 static void	ft_rotate(t_list **a)
 {
+	if (!*a)
+		return ;
 	*a = (*a)->next;
 }
 
-void	ra(t_list **a)
+void	ra(t_ps *ps)
 {
-	ft_rotate(a);
-	write(1, "ra", 2);
+	ft_rotate(&ps->a);
+	ft_printf("ra\n");
+	ps->counts[OP_RA]++;
 }
 
-void	rb(t_list **b)
+void	rb(t_ps *ps)
 {
-	ft_rotate(b);
-	write(1, "rb", 2);
+	ft_rotate(&ps->b);
+	ft_printf("rb\n");
+	ps->counts[OP_RB]++;
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_ps *ps)
 {
-	ft_rotate(a);
-	ft_rotate(b);
-	write(1, "rr", 3);
+	ft_rotate(&ps->a);
+	ft_rotate(&ps->b);
+	ft_printf("rr\n");
+	ps->counts[OP_RR]++;
 }
